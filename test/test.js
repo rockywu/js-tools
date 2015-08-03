@@ -30,3 +30,39 @@ check_source_type([
     "Tools.switcher.running",
     "Tools.switcher.reset",
 ], 'function');
+
+/* 检查pagination */
+check_source_type([
+    'Tools.pagination',
+], 'function')
+
+test("Tools.pagination.do", function(obj) {
+    var size = 200;
+    var pagination = new Tools.pagination({
+        size : size
+    });
+    pagination.do(function(e) {
+        e.prev();
+        e.prev();
+        e.prev();
+        e.prev();
+        e.prev();
+        ok(e.page > 0 , "e.page : " + e.page);
+        e.next();
+        e.next();
+        e.next();
+        e.next();
+        e.next();
+        ok(e.page == 6, "e.page : " + e.page);
+        e.prev();
+        e.prev();
+        e.prev();
+        ok(e.page == 3, "e.page : " + e.page);
+        ok(e.size === 200 , "e.size : " + e.size);
+        //检查开关
+        ok(typeof e.switcher.reset == 'function', "e.switcher.reset is function");
+        ok(e.switcher.switcher.local[e.switcher.key], "e.switcher is open");
+        e.switcher.reset();
+        ok(!e.switcher.switcher.local[e.switcher.key], "e.switcher is close");
+    })
+})

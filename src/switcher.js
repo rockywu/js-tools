@@ -34,9 +34,8 @@ switcher.prototype.do = function(fun) {
  * switcher外部接口
  */
 switcher.prototype.switcher = function(key) {
-    var self = this;
     return {
-        switcher : self,
+        switcher : this,
         key : key,
         reset : function() {
             this.switcher.reset(this.key);

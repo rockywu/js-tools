@@ -44,9 +44,8 @@ switcher.prototype.do = function(fun) {
  * switcher外部接口
  */
 switcher.prototype.switcher = function(key) {
-    var self = this;
     return {
-        switcher : self,
+        switcher : this,
         key : key,
         reset : function() {
             this.switcher.reset(this.key);
@@ -63,31 +62,42 @@ switcher.prototype.clear = function() {
 Tools.switcher = new switcher();
 
 })(Tools);
-
+;(function(Tools) {
 /*
- * 分页函数
+ * 分页函数 依赖switcher
  */
 var pagination = Tools.pagination = function(options) {
-    var def = {
-        page_num : 1,
-        page_size : 10
+    options = options || {};
+    this.page = options.page > 0 ? options.page :  1;
+    this.size = options.size > 0 ? options.size : 10;
+    this.e = {
+        self : this,
+        page : this.page,
+        size : this.size,
+        next : function() {
+            this.page++;
+        },
+        prev : function(){ 
+            this.page <= 1 ? '' : this.page--;
+        }
     };
-
 }
 
 /*
- * 上一页
+ * do 执行操作
  */
-pagination.prototype.next = function() {
-
+pagination.prototype.do = function(fun) {
+    var self = this;
+    Tools.switcher.do(function(switcher) {
+        self.e.switcher = switcher;
+        fun(self.e);
+    });
 }
 
-/*
- * 下一页
- */
-pagination.prototype.previous = function() {
+Tools.pagination = pagination;
 
-}
+})(Tools);
+
 
 this.Tools = Tools;
 
