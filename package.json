@@ -12,11 +12,12 @@
   ],
   "author": "rockywu <wjl19890427@hotmail.com>",
   "license": "ISC",
-  "devDependencies" : {
-    "grunt-cli": "*",
+  "devDependencies": {
     "grunt": "*",
-    "grunt-contrib-jshint": "*",
+    "grunt-cli": "*",
     "grunt-contrib-concat": "*",
-    "grunt-contrib-uglify": "*"
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*",
+    "mocha": "^2.2.5"
   }
 }
