@@ -1,4 +1,4 @@
 
-this.pagination = pagination;
+this.Tools = Tools;
 
 }).call(this);

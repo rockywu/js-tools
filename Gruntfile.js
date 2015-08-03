@@ -2,6 +2,7 @@ module.exports = function(grunt) {
 
   var sources = [
     'src/intro.js',
+    'src/switcher',
     'src/pagination.js',
     'src/outro.js'
   ];

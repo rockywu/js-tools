@@ -1,11 +1,18 @@
 /*
- * 分页功能，用于async 获取动态数据进行分页
+ * 自我整理常用工具类
  */
 ;(function() {
 
 "use strict";
 
-var pagination = function(options) {
+var global = this;
+
+var Tools = {};
+
+/*
+ * 分页函数
+ */
+var pagination = Tools.pagination = function(options) {
     var def = {
         page_num : 1,
         page_size : 10
@@ -16,17 +23,17 @@ var pagination = function(options) {
 /*
  * 上一页
  */
-var next = pagination.prototype.next = function() {
+pagination.prototype.next = function() {
 
 }
 
 /*
  * 下一页
  */
-var previous = pagination.prototype.previous = function() {
+pagination.prototype.previous = function() {
 
 }
 
-this.pagination = pagination;
+this.Tools = Tools;
 
 }).call(this);

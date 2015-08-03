@@ -1,6 +1,10 @@
 /*
- * 分页功能，用于async 获取动态数据进行分页
+ * 自我整理常用工具类
  */
 ;(function() {
 
 "use strict";
+
+var global = this;
+
+var Tools = {};

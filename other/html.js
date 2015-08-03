@@ -1,3 +1,10 @@
+
+/*
+ * Tools.html
+ */
+
+var html = Tools.html
+
 var html_util = {
     /*1.用浏览器内部转换器实现html转码*/
     html_encode:function (html){
