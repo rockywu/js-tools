@@ -1,4 +1,5 @@
 ;(function(Tools) {
+    "use strict";
 /*
  * 分页函数 依赖switcher
  */

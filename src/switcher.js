@@ -1,4 +1,5 @@
 ;(function(Tools) {
+    "use strict";
 /*
  * 保护开关 Tools.switcher
  * 用于函数异步调用是，单次执行

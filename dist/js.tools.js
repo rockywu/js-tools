@@ -8,7 +8,12 @@
 var global = this;
 
 var Tools = {};
+
+this.Tools = Tools;
+
+}).call(this);
 ;(function(Tools) {
+    "use strict";
 /*
  * 保护开关 Tools.switcher
  * 用于函数异步调用是，单次执行
@@ -63,6 +68,7 @@ Tools.switcher = new switcher();
 
 })(Tools);
 ;(function(Tools) {
+    "use strict";
 /*
  * 分页函数 依赖switcher
  */
@@ -97,8 +103,3 @@ pagination.prototype.do = function(fun) {
 Tools.pagination = pagination;
 
 })(Tools);
-
-
-this.Tools = Tools;
-
-}).call(this);

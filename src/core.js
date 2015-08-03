@@ -8,3 +8,7 @@
 var global = this;
 
 var Tools = {};
+
+this.Tools = Tools;
+
+}).call(this);
