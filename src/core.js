@@ -5,8 +5,6 @@
 
 "use strict";
 
-var global = this;
-
 var Tools = {};
 
 this.Tools = Tools;

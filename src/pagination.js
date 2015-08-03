@@ -33,4 +33,4 @@ pagination.prototype.do = function(fun) {
 
 Tools.pagination = pagination;
 
-})(Tools);
+}).call(this, Tools);

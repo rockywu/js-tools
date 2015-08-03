@@ -1,5 +1,6 @@
 ;(function(Tools) {
     "use strict";
+var global = this;
 /*
  * 保护开关 Tools.switcher
  * 用于函数异步调用是，单次执行
@@ -52,4 +53,4 @@ switcher.prototype.clear = function() {
 
 Tools.switcher = new switcher();
 
-})(Tools);
+}).call(this, Tools);
