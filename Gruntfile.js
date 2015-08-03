@@ -25,7 +25,7 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        banner: '/*! \n * <%= pkg.name %> \n * <%= pkg.description %>  \n * <%= grunt.template.today("yyyy-mm-dd") %> \n */\n'
       },
       build: {
         src: '<%= output.concat %>',
