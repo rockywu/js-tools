@@ -9,10 +9,10 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    dest_path : "dest/",
+    dest_path : "dist/",
     output : {
-      concat : '<%= dest_path %>pagination.js',
-      uglify : '<%= dest_path %>pagination.min.js',
+      concat : '<%= dest_path %>js.tools.js',
+      uglify : '<%= dest_path %>js.tools.min.js',
     },
     concat : {
       options : {

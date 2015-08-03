@@ -1,13 +1,13 @@
 {
-  "name": "pagination",
+  "name": "jstools",
   "version": "1.0.0",
-  "description": "pagination.js use mobel async data load ",
+  "description": "jstools.js use mobel async data load ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "pagination",
+    "js-tools",
     "javascript"
   ],
   "author": "rockywu <wjl19890427@hotmail.com>",
