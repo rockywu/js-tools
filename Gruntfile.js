@@ -1,15 +1,15 @@
 module.exports = function(grunt) {
 
+  var sources = [
+    'src/intro.js',
+    'src/pagination.js',
+    'src/outro.js'
+  ];
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    src_path : "src/",
     dest_path : "dest/",
-    sources : [
-      '<%= src_path %>intro.js',
-      '<%= src_path %>pagination.js',
-      '<%= src_path %>outro.js'
-    ],
     output : {
       concat : '<%= dest_path %>pagination.js',
       uglify : '<%= dest_path %>pagination.min.js',
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
           banner : ''
       },
       build : {
-        src : '<% sources %>',
+        src : sources,
         dest : '<%= output.concat %>'
       }
     },
