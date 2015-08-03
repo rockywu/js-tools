@@ -1,0 +1,4 @@
+
+this.pagination = pagination;
+
+})();
