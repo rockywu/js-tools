@@ -22,6 +22,8 @@ function check_source_type(name, type) {
         });
     }
 }
+
+/* switch 测试用例*/
 check_source_type([
     "Tools.switcher.do",
     "Tools.switcher.clear",
