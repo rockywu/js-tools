@@ -1,4 +1,4 @@
-
+;(function(Tools) {
 /*
  * 保护开关 Tools.switcher
  * 用于函数异步调用是，单次执行
@@ -33,7 +33,7 @@ switcher.prototype.do = function(fun) {
 /*
  * switcher外部接口
  */
-switcher.prototype.switcher = function() {
+switcher.prototype.switcher = function(key) {
     var self = this;
     return {
         switcher : self,
@@ -51,3 +51,5 @@ switcher.prototype.clear = function() {
 }
 
 Tools.switcher = new switcher();
+
+})(Tools);
