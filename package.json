@@ -18,6 +18,7 @@
     "grunt-contrib-concat": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "qunitjs": "^1.18.0"
   }
 }
