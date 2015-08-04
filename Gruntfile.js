@@ -31,6 +31,21 @@ module.exports = function(grunt) {
         src: '<%= output.concat %>',
         dest: '<%= output.uglify %>'
       }
+    },
+    watch: {
+      scripts: {
+        files: sources,
+        tasks: ['concat','uglify'],
+        options: {
+          interrupt: true,
+        },
+      },
+      configFiles: {
+        files: [ 'Gruntfile.js'],
+        options: {
+          reload: true
+        }
+      }
     }
   });
 
@@ -38,8 +53,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   // 加载包含 "uglify" 任务的插件。
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // 默认被执行的任务列表。
-  grunt.registerTask('default', ['concat', 'uglify']);
+  grunt.registerTask('default', ['concat', 'uglify', 'watch']);
 
 };

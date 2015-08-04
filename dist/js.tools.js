@@ -10,6 +10,7 @@ var Tools = {};
 this.Tools = Tools;
 
 }).call(this);
+
 ;(function(Tools) {
     "use strict";
 var global = this;
