@@ -1,66 +1,52 @@
 module.exports = function(grunt) {
 
-  var sources = [
-    'src/core.js',
-    'src/switcher.js',
-    'src/pagination.js',
-  ];
+  var configure = grunt.file.readJSON("configure.json");
 
-console.log(grunt.file.read('imageUpload.json'));
-  // Project configuration.
+  var all_files = configure.tools_source.concat(configure.upload_source);
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    //image_upload : grunt.file.readJSON('image-upload.json'),
     dest_path : "dist/",
     output : {
-      concat : '<%= dest_path %>js.tools.js',
-      uglify : '<%= dest_path %>js.tools.min.js',
+      concat_tools : '<%= dest_path %>' + configure.output_file.js_tools,
+      uglify_tools : '<%= dest_path %>' + configure.output_file.js_tools_min,
+      concat_image_upload : '<%= dest_path %>' + configure.output_file.image_upload,
+      uglify_image_upload : '<%= dest_path %>' + configure.output_file.image_upload_min,
     },
     concat : {
       options : {
           banner : ''
       },
-      build : {
-        src : sources,
-        dest : '<%= output.concat %>'
+      build_tools : {
+        src : configure.tools_source,
+        dest : '<%= output.concat_tools %>'
       },
       build_upload : {
-        src: [
-            'src/compress-image-upload/cui.js',
-            'src/compress-image-upload/android.js',
-            'src/compress-image-upload/ios.js',
-            'src/compress-image-upload/exif.js',
-            'src/compress-image-upload/binaryajax.js'
-        ],
-        dest : 'dist/compress-image-upload.js'
+        src : configure.upload_source,
+        dest : '<%= output.concat_image_upload %>'
       }
     },
     uglify: {
       options: {
         banner: '/*! \n * <%= pkg.name %> \n * <%= pkg.description %>  \n * <%= grunt.template.today("yyyy-mm-dd") %> \n */\n'
       },
-      build: {
-        src: '<%= output.concat %>',
-        dest: '<%= output.uglify %>'
+      build_tools: {
+        src: '<%= output.concat_tools %>',
+        dest: '<%= output.uglify_tools %>'
       },
       build_upload : {
-        options : {
+        options: {
+          banner: '/*! \n * compress.image.upload.js \n * 压缩图片上传 \n * <%= grunt.template.today("yyyy-mm-dd") %> \n */\n',
+          mangle: false, //不混淆变量名
+          preserveComments: false, //all 不删除注释，还可以为 false（删除全部注释），some（保留@preserve @license @cc_on等注释）
+          footer:'\n/*! <%= pkg.name %> 最后修改于： <%= grunt.template.today("yyyy-mm-dd") %> */'//添加footer
         },
-        files: {
-          'dist/compress-image-upload.min.js' : [
-            'src/compress-image-upload/cui.js',
-            'src/compress-image-upload/android.js',
-            'src/compress-image-upload/ios.js',
-            'src/compress-image-upload/exif.js',
-            'src/compress-image-upload/binaryajax.js'
-          ]
-        }
+        src: '<%= output.concat_image_upload %>',
+        dest: '<%= output.uglify_image_upload %>'
       }
-      //build_upload : image_upload.uglify,
     },
     watch: {
       scripts: {
-        files: sources,
+        files: all_files,
         tasks: ['concat','uglify'],
         options: {
           interrupt: true,

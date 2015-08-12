@@ -1,0 +1,20 @@
+{
+  "tools_source": [
+    "src/core.js",
+    "src/switcher.js",
+    "src/pagination.js"
+  ],
+  "upload_source": [
+    "src/compress-image-upload/cui.js",
+    "src/compress-image-upload/android.js",
+    "src/compress-image-upload/ios.js",
+    "src/compress-image-upload/exif.js",
+    "src/compress-image-upload/binaryajax.js"
+  ],
+  "output_file": {
+    "js_tools": "js.tools.js",
+    "js_tools_min": "js.tools.min.js",
+    "image_upload": "compress-image-upload.js",
+    "image_upload_min": "compress-image-upload.min.js"
+  }
+}
