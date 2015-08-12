@@ -1,0 +1,25 @@
+{
+  concat : {
+    src: [
+        'src/compress-image-upload/cui.js',
+        'src/compress-image-upload/android.js',
+        'src/compress-image-upload/ios.js',
+        'src/compress-image-upload/exif.js',
+        'src/compress-image-upload/binaryajax.js'
+    ],
+    dest : 'dist/compress-image-upload.js'
+  },
+  uglify : {
+    options : {
+    },
+    files: {
+      'dist/compress-image-upload.min.js' : [
+        'src/compress-image-upload/cui.js',
+        'src/compress-image-upload/android.js',
+        'src/compress-image-upload/ios.js',
+        'src/compress-image-upload/exif.js',
+        'src/compress-image-upload/binaryajax.js'
+      ]
+    }
+  }
+}
