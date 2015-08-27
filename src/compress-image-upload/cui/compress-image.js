@@ -92,7 +92,9 @@
    * 图片进行压缩
    * 返回压缩的base64码
    */
-  cui.prototype.compress = function() { }
+  cui.prototype.compress = function(file, maxWidth, maxHeight) { 
+
+  }
 
   /*
    * 图片检查是否重复
@@ -142,7 +144,7 @@
         }
       }
       //进行图片压缩
-      if(isMobile.iOS()){
+      if(isMobile.IOS()){
         mpImg.render(tmpImg, {maxWidth: width, maxHeight: height });
         EXIF.getData(file, function() {
           orientation=EXIF.getTag(this,'Orientation');

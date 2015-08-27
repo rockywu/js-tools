@@ -12,13 +12,25 @@
     </head>
     <body>
         <h1>测试上传功能</h1>
-        <div>文件选择：<input type="file" accept="image/jpeg" multiple="multiple" /></div>
+        <div>文件选择：<input type="file" accept="image/jpeg" multiple="multiple" id="upload-file" /></div>
         <div>
             <button onclick="upload();">确认上传</button>
         </div>
+        <img src="xxx" id="upload-img" alt="暂无"/>
+        <img src="xxx" id="upload-img-2" alt="暂无"/>
         <script type="text/javascript" src="../dist/compress-image-upload.js"></script>
         <script type="text/javascript">
+            var file = document.getElementById("upload-file");
             function upload() {
+                if(file.files && file.files.length >0) {
+                    window.compress && window.compress(file.files[0], 640, 480, function(base64) {
+                        var myEncoder = new JPEGEncoder(10);//实例化一个jpeg的转码器
+                        var JPEGImage = myEncoder.encode(base64);//将图片位图保存为用JPEG编码的格式的字节数组
+                        document.getElementById("upload-img").src= JPEGImage;
+                    });
+                } else {
+                    alert("请选择图片");
+                }
             }
         </script>
     </body>

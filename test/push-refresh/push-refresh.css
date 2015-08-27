@@ -1,0 +1,16 @@
+.ui-header, .ui-footer {
+    /* 自定义 属性*/
+    background-color: #62AB00;
+    text-align: center;
+}
+.ui-footer {
+    bottom: 0;
+    height: 44px;
+}
+.ui-footer~.ui-container {
+    border-bottom: 44px solid transparent;
+}
+.ui-header~.ui-container {
+    border-top: 45px solid transparent;
+}
+
